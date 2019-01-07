@@ -3,35 +3,21 @@ import Counter from './components/Counter.js';
 //import logo from './logo.svg';
 //import './App.css';
 
-const App = () => {
-  return(
-    <Counter/>
-  );
+class App extends Component {
+  render() {
+    const {store} = this.props;
+    return (
+      <div className="App">
+        <Counter
+      value = {store.getState()}
+      onIncrement = {()=> store.dispatch({type: 'INCREMENT'})}
 
+      onDecrement = {() =>  store.dispatch({type: 'DECREMENT'})}
+        />
+      </div>
+    );
+  }
 }
-
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="App">
-//         <header className="App-header">
-//            <img src={logo} className="App-logo" alt="logo" />
-//           <p>
-//             Edit <code>src/App.js</code> and save to reload.
-//           </p>
-//           <a
-//             className="App-link"
-//             href="https://reactjs.org"
-//             target="_blank"
-//             rel="noopener noreferrer"
-//           >
-//             Learn React
-//           </a>
-//         </header>
-//       </div>
-//     );
-//   }
-//}
 
 
 
